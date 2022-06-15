@@ -1,7 +1,5 @@
 package com.perficient.techbootcampyaneli;
 
-
-
 public class Calculator {
 	public Calculator() {
 		super();

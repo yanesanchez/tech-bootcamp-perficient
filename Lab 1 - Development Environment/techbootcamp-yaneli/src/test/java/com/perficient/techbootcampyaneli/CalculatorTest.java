@@ -1,25 +1,36 @@
 package com.perficient.techbootcampyaneli;
 
 import org.springframework.boot.test.context.SpringBootTest;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
+
+/* Resource Links
+ * 
+ * Assertions & Assumptions
+ * https://www.vogella.com/tutorials/JUnit/article.html#assertions-and-assumptions
+ * Exercise: Writing a JUnit test with Gradle and Eclipse
+ * https://www.vogella.com/tutorials/JUnit/article.html#junitgradleeclipse
+ * 
+ */
 
 @SpringBootTest
 public class CalculatorTest {
 	// code from https://www.vogella.com/tutorials/JUnit/article.html
 	Calculator calculator;
 
-    @BeforeEach                                         
+	// run before each @Test
+    @BeforeEach                                 
     void setUp() {
         calculator = new Calculator();
     }
-
-    @Test                                               
+    
+    // define name of test; displayed to user
     @DisplayName("Simple multiplication should work")   
     void testMultiply() {
+    	// validate that the expected and actual values are the same
         assertEquals(20, calculator.multiply(4, 5),     
                 "Regular multiplication should work");  
     }

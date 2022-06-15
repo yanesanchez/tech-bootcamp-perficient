@@ -26,3 +26,9 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+/* as per https://www.vogella.com/tutorials/JUnit/article.html#update-build-gradle-file-to-use-junit5
+test {
+	useJUnitPlatform()
+}
+*/

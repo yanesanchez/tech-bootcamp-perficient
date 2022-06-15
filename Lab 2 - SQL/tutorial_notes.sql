@@ -202,3 +202,31 @@ but the defaults are tab and linefeed. */
        ORDER BY species, birth DESC;
 
 ### ** 3.3.4.5 Date Calculations **
+# calculate difference to find age of pets
+	SELECT name, birth, CURDATE(), 
+		TIMESTAMPDIFF(YEAR, birth, CURDATE()) AS age
+		FROM pet;
+
+# order rows by name to scan results more easily
+	SELECT name, birth, CURDATE(), 
+			TIMESTAMPDIFF(YEAR, birth, CURDATE()) AS age
+			FROM pet ORDER BY name;
+
+# order by some other field, such as age
+	SELECT name, birth, CURDATE(),
+		TIMESTAMPDIFF(YEAR, birth, CURDATE()) AS age 
+		FROM pet ORDER BY age;
+
+# determine age for pets that have passed away
+	SELECT name, birth, death,
+		TIMESTAMPDIFF(YEAR, birth, death) AS age 
+		FROM pet WHERE death IS NOT NULL ORDER BY age;
+
+# other functions for extracting parts of dates:
+	YEAR()
+	MONTH()
+	DAYOFMONTH()
+	MONTH()
+
+# extract birth month
+	SELECT name, birth, MONTH(birth) FROM pet;

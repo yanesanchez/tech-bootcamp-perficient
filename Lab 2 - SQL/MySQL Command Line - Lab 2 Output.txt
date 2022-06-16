@@ -265,3 +265,367 @@ mysql> SELECT name, species, birth FROM pet
 | Slim     | snake   | 1996-04-29 |
 +----------+---------+------------+
 9 rows in set (0.00 sec)
+
+mysql> SELECT name, birth, CURDATE(),
+    -> TIMESTAMPDIFF(YEAR, birth, CURDATE()) AS age
+    -> FROM pet;
++----------+------------+------------+------+
+| name     | birth      | CURDATE()  | age  |
++----------+------------+------------+------+
+| Fluffy   | 1993-02-04 | 2022-06-15 |   29 |
+| Claws    | 1994-03-17 | 2022-06-15 |   28 |
+| Buffy    | 1989-05-13 | 2022-06-15 |   33 |
+| Fang     | 1990-08-27 | 2022-06-15 |   31 |
+| Bowser   | 1989-08-31 | 2022-06-15 |   32 |
+| Chirpy   | 1998-09-11 | 2022-06-15 |   23 |
+| Whistler | 1997-12-09 | 2022-06-15 |   24 |
+| Slim     | 1996-04-29 | 2022-06-15 |   26 |
+| Puffball | 1999-03-30 | 2022-06-15 |   23 |
++----------+------------+------------+------+
+9 rows in set (0.00 sec)
+
+mysql> SELECT name, birth, CURDATE(),
+    -> TIMESTAMPDIFF(YEAR, birth, CURDATE()) AS age
+    -> FROM pet ORDER BY name;
++----------+------------+------------+------+
+| name     | birth      | CURDATE()  | age  |
++----------+------------+------------+------+
+| Bowser   | 1989-08-31 | 2022-06-15 |   32 |
+| Buffy    | 1989-05-13 | 2022-06-15 |   33 |
+| Chirpy   | 1998-09-11 | 2022-06-15 |   23 |
+| Claws    | 1994-03-17 | 2022-06-15 |   28 |
+| Fang     | 1990-08-27 | 2022-06-15 |   31 |
+| Fluffy   | 1993-02-04 | 2022-06-15 |   29 |
+| Puffball | 1999-03-30 | 2022-06-15 |   23 |
+| Slim     | 1996-04-29 | 2022-06-15 |   26 |
+| Whistler | 1997-12-09 | 2022-06-15 |   24 |
++----------+------------+------------+------+
+9 rows in set (0.00 sec)
+
+mysql> SELECT name, birth, death,
+    -> TIMESTAMPDIFF(YEAR, birth, death) AS age
+    -> FROM pet WHERE death IS NOT NULL ORDER BY age;
++--------+------------+------------+------+
+| name   | birth      | death      | age  |
++--------+------------+------------+------+
+| Bowser | 1989-08-31 | 1995-07-29 |    5 |
++--------+------------+------------+------+
+1 row in set (0.01 sec)
+
+mysql> SELECT name, birth, MONTH(birth) FROM pet;
++----------+------------+--------------+
+| name     | birth      | MONTH(birth) |
++----------+------------+--------------+
+| Fluffy   | 1993-02-04 |            2 |
+| Claws    | 1994-03-17 |            3 |
+| Buffy    | 1989-05-13 |            5 |
+| Fang     | 1990-08-27 |            8 |
+| Bowser   | 1989-08-31 |            8 |
+| Chirpy   | 1998-09-11 |            9 |
+| Whistler | 1997-12-09 |           12 |
+| Slim     | 1996-04-29 |            4 |
+| Puffball | 1999-03-30 |            3 |
++----------+------------+--------------+
+9 rows in set (0.00 sec)
+
+mysql> SELECT 1 IS NULL, 1 IS NOT NULL;
++-----------+---------------+
+| 1 IS NULL | 1 IS NOT NULL |
++-----------+---------------+
+|         0 |             1 |
++-----------+---------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT 1 = NULL, 1 <> NULL, 1 < NULL, 1 > NULL;
++----------+-----------+----------+----------+
+| 1 = NULL | 1 <> NULL | 1 < NULL | 1 > NULL |
++----------+-----------+----------+----------+
+|     NULL |      NULL |     NULL |     NULL |
++----------+-----------+----------+----------+
+1 row in set (0.01 sec)
+
+mysql> SELECT 0 IS NULL, 0 IS NOT NULL, '' IS NULL, '' IS NOT NULL;
++-----------+---------------+------------+----------------+
+| 0 IS NULL | 0 IS NOT NULL | '' IS NULL | '' IS NOT NULL |
++-----------+---------------+------------+----------------+
+|         0 |             1 |          0 |              1 |
++-----------+---------------+------------+----------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * FROM pet WHERE name LIKE 'b%';
++--------+--------+---------+------+------------+------------+
+| name   | owner  | species | sex  | birth      | death      |
++--------+--------+---------+------+------------+------------+
+| Buffy  | Harold | dog     | f    | 1989-05-13 | NULL       |
+| Bowser | Diane  | dog     | m    | 1989-08-31 | 1995-07-29 |
++--------+--------+---------+------+------------+------------+
+2 rows in set (0.01 sec)
+
+mysql> SELECT * FROM pet WHERE name LIKE '%fy';
++--------+--------+---------+------+------------+-------+
+| name   | owner  | species | sex  | birth      | death |
++--------+--------+---------+------+------------+-------+
+| Fluffy | Harold | cat     | f    | 1993-02-04 | NULL  |
+| Buffy  | Harold | dog     | f    | 1989-05-13 | NULL  |
++--------+--------+---------+------+------------+-------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT * FROM pet WHERE name LIKE '%w%';
++----------+-------+---------+------+------------+------------+
+| name     | owner | species | sex  | birth      | death      |
++----------+-------+---------+------+------------+------------+
+| Claws    | Gwen  | cat     | m    | 1994-03-17 | NULL       |
+| Bowser   | Diane | dog     | m    | 1989-08-31 | 1995-07-29 |
+| Whistler | Gwen  | bird    | NULL | 1997-12-09 | NULL       |
++----------+-------+---------+------+------------+------------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT * FROM pet WHERE name LIKE '_____';
++-------+--------+---------+------+------------+-------+
+| name  | owner  | species | sex  | birth      | death |
++-------+--------+---------+------+------------+-------+
+| Claws | Gwen   | cat     | m    | 1994-03-17 | NULL  |
+| Buffy | Harold | dog     | f    | 1989-05-13 | NULL  |
++-------+--------+---------+------+------------+-------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT * FROM pet WHERE REGEXP_LIKE(name, '^b');
++--------+--------+---------+------+------------+------------+
+| name   | owner  | species | sex  | birth      | death      |
++--------+--------+---------+------+------------+------------+
+| Buffy  | Harold | dog     | f    | 1989-05-13 | NULL       |
+| Bowser | Diane  | dog     | m    | 1989-08-31 | 1995-07-29 |
++--------+--------+---------+------+------------+------------+
+2 rows in set (0.02 sec)
+
+mysql> SELECT * FROM pet WHERE REGEXP_LIKE(name, BINARY '^b');
+ERROR 3995 (HY000): Character set 'utf8mb4_0900_ai_ci' cannot be used in conjunction with 'binary' in call to regexp_like.
+mysql> SELECT * FROM pet WHERE REGEXP_LIKE(name, '^b' COLLATE utf8mb4_0900_as_cs);
+ERROR 1253 (42000): COLLATION 'utf8mb4_0900_as_cs' is not valid for CHARACTER SET 'cp850'
+mysql> SELECT * FROM pet WHERE REGEXP_LIKE(name, '^b', 'c');
+Empty set (0.00 sec)
+
+mysql> SELECT * FROM pet WHERE REGEXP_LIKE(name, 'fy$');
++--------+--------+---------+------+------------+-------+
+| name   | owner  | species | sex  | birth      | death |
++--------+--------+---------+------+------------+-------+
+| Fluffy | Harold | cat     | f    | 1993-02-04 | NULL  |
+| Buffy  | Harold | dog     | f    | 1989-05-13 | NULL  |
++--------+--------+---------+------+------------+-------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT * FROM pet WHERE REGEXP_LIKE(name, 'w');
++----------+-------+---------+------+------------+------------+
+| name     | owner | species | sex  | birth      | death      |
++----------+-------+---------+------+------------+------------+
+| Claws    | Gwen  | cat     | m    | 1994-03-17 | NULL       |
+| Bowser   | Diane | dog     | m    | 1989-08-31 | 1995-07-29 |
+| Whistler | Gwen  | bird    | NULL | 1997-12-09 | NULL       |
++----------+-------+---------+------+------------+------------+
+3 rows in set (0.01 sec)
+
+mysql> SELECT * FROM pet WHERE REGEXP_LIKE(name, '^.....$');
++-------+--------+---------+------+------------+-------+
+| name  | owner  | species | sex  | birth      | death |
++-------+--------+---------+------+------------+-------+
+| Claws | Gwen   | cat     | m    | 1994-03-17 | NULL  |
+| Buffy | Harold | dog     | f    | 1989-05-13 | NULL  |
++-------+--------+---------+------+------------+-------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT * FROM pet WHERE REGEXP_LIKE(name, '^.{5}$');
++-------+--------+---------+------+------------+-------+
+| name  | owner  | species | sex  | birth      | death |
++-------+--------+---------+------+------------+-------+
+| Claws | Gwen   | cat     | m    | 1994-03-17 | NULL  |
+| Buffy | Harold | dog     | f    | 1989-05-13 | NULL  |
++-------+--------+---------+------+------------+-------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT COUNT(*) FROM pet;
++----------+
+| COUNT(*) |
++----------+
+|        9 |
++----------+
+1 row in set (0.02 sec)
+
+mysql> SELECT owner, COUNT(*) FROM pet GROUP BY owner;
++--------+----------+
+| owner  | COUNT(*) |
++--------+----------+
+| Harold |        2 |
+| Gwen   |        3 |
+| Benny  |        2 |
+| Diane  |        2 |
++--------+----------+
+4 rows in set (0.01 sec)
+
+mysql> SELECT species, COUNT(*) FROM pet GROUP BY species;
++---------+----------+
+| species | COUNT(*) |
++---------+----------+
+| cat     |        2 |
+| dog     |        3 |
+| bird    |        2 |
+| snake   |        1 |
+| hamster |        1 |
++---------+----------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT species, sex, COUNT(*) FROM pet GROUP BY species, sex;
++---------+------+----------+
+| species | sex  | COUNT(*) |
++---------+------+----------+
+| cat     | f    |        1 |
+| cat     | m    |        1 |
+| dog     | f    |        1 |
+| dog     | m    |        2 |
+| bird    | f    |        1 |
+| bird    | NULL |        1 |
+| snake   | m    |        1 |
+| hamster | f    |        1 |
++---------+------+----------+
+8 rows in set (0.00 sec)
+
+mysql> SELECT species, sex, COUNT(*) FROM pet
+    -> WHERE species = 'dog' OR species = 'cat'
+    -> GROUP BY species, sex;
++---------+------+----------+
+| species | sex  | COUNT(*) |
++---------+------+----------+
+| cat     | f    |        1 |
+| cat     | m    |        1 |
+| dog     | f    |        1 |
+| dog     | m    |        2 |
++---------+------+----------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT species, sex, COUNT(*) FROM pet
+    -> WHERE sex IS NOT NULL
+    -> GROUP BY species, sex;
++---------+------+----------+
+| species | sex  | COUNT(*) |
++---------+------+----------+
+| cat     | f    |        1 |
+| cat     | m    |        1 |
+| dog     | f    |        1 |
+| dog     | m    |        2 |
+| bird    | f    |        1 |
+| snake   | m    |        1 |
+| hamster | f    |        1 |
++---------+------+----------+
+7 rows in set (0.00 sec)
+
+mysql> CREATE TABLE event (
+    -> name VARCHAR(20),
+    -> date DATE,
+    -> type VARCHAR(15),
+    -> remark VARCHAR(255)
+    -> );
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> SHOW TABLES;
++---------------------+
+| Tables_in_menagerie |
++---------------------+
+| event               |
+| pet                 |
++---------------------+
+2 rows in set (0.01 sec)
+
+mysql> INSERT INTO event VALUES
+    -> ('Fluffy', '1995-05-15', 'litter', '4 kittens, 3 female, 1 male'),
+    -> ('Buffy', '1993-06-23', 'litter', '5 puppies, 2 female, 3 male'),
+    -> ('Buffy', '1994-06-19', 'litter', '3 puppies, 3 female'),
+    -> ('Chirpy', '1999-03-21', 'vet', 'needed beak straightened'),
+    -> ('Slim', '1997-08-03', 'vet', 'broken rib'),
+    -> ('Bowser', '1991-10-12', 'kennel', NULL),
+    -> ('Fang', '1991-10-12', 'kennel', NULL),
+    -> ('Fang', '1998-08-28', 'birthday', 'Gave him a new chew toy'),
+    -> ('Claws', '1998-03-17', 'birthday', 'Gave him a new flea collar'),
+    -> ('Whistler', '1998-12-09', 'birthday', 'First birthday');
+Query OK, 10 rows affected (0.02 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+mysql> SELECT pet.name, TIMESTAMPDIFF(YEAR, birth, date) AS age, remark
+    ->  FROM pet INNER JOIN event
+    ->  ON pet.name = event.name
+    ->  WHERE event.type = 'litter';
++--------+------+-----------------------------+
+| name   | age  | remark                      |
++--------+------+-----------------------------+
+| Fluffy |    2 | 4 kittens, 3 female, 1 male |
+| Buffy  |    5 | 3 puppies, 3 female         |
+| Buffy  |    4 | 5 puppies, 2 female, 3 male |
++--------+------+-----------------------------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT p1.name, p1.sex, p2.name, p2.sex, p1.species
+    -> FROM pet AS p1 INNER JOIN pet AS p2
+    -> ON p1.species = p2.species
+    -> AND p1.sex = 'f' AND p1.death IS NULL
+    -> AND p2.sex = 'm' AND p2.death IS NULL;
++--------+------+-------+------+---------+
+| name   | sex  | name  | sex  | species |
++--------+------+-------+------+---------+
+| Fluffy | f    | Claws | m    | cat     |
+| Buffy  | f    | Fang  | m    | dog     |
++--------+------+-------+------+---------+
+2 rows in set (0.00 sec)
+
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| db_bootcamp        |
+| information_schema |
+| menagerie          |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+8 rows in set (0.00 sec)
+
+mysql> SELECT DATABASE();
++------------+
+| DATABASE() |
++------------+
+| menagerie  |
++------------+
+1 row in set (0.00 sec)
+
+mysql> SHOW TABLES;
++---------------------+
+| Tables_in_menagerie |
++---------------------+
+| event               |
+| pet                 |
++---------------------+
+2 rows in set (0.00 sec)
+
+mysql> DESCRIBE pet;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| name    | varchar(20) | YES  |     | NULL    |       |
+| owner   | varchar(20) | YES  |     | NULL    |       |
+| species | varchar(20) | YES  |     | NULL    |       |
+| sex     | char(1)     | YES  |     | NULL    |       |
+| birth   | date        | YES  |     | NULL    |       |
+| death   | date        | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+6 rows in set (0.02 sec)
+
+mysql> DESCRIBE event;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| name   | varchar(20)  | YES  |     | NULL    |       |
+| date   | date         | YES  |     | NULL    |       |
+| type   | varchar(15)  | YES  |     | NULL    |       |
+| remark | varchar(255) | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)

@@ -18,6 +18,15 @@
   - [Inversion of Control (IoC)](https://github.com/yanesanchez/tech-bootcamp-perficient/blob/main/README.md#inversion-of-control)
   - [REST and MVC](https://github.com/yanesanchez/tech-bootcamp-perficient/blob/main/README.md#rest-and-mvc)
   - [Spring JDBC](https://github.com/yanesanchez/tech-bootcamp-perficient/blob/main/README.md#spring-jdbc)
+- [Lab 4 - Object Relational Mapping (ORM) with JPA (Hibernate)](https://github.com/yanesanchez/tech-bootcamp-perficient/blob/main/README.md#lab-4---object-relational-mapping)
+  - [Objectives](https://github.com/yanesanchez/tech-bootcamp-perficient/blob/main/README.md#objectives-5)
+  - [Hibernate](https://github.com/yanesanchez/tech-bootcamp-perficient/blob/main/README.md#hibernate)
+  - [Documentation and Tutorials](https://github.com/yanesanchez/tech-bootcamp-perficient/blob/main/README.md#documentation-and-tutorials)
+    - [Configuration]()
+    - [Reference]()
+  - [Spring Transaction Management](https://github.com/yanesanchez/tech-bootcamp-perficient/blob/main/README.md#spring-transactional-management)
+    - [Reference Documentation]()
+
 
 ---
 
@@ -95,7 +104,7 @@ Open-source relational database with a tool suite.
 - Start the MySQL DB
 - Connect to local MySQL DB from MySQL Workbench
 - At the prompt, enter ```CREATE DATABASE <db_name>;``` then hit the lightning button after typing to execute.
-- In Spring application, modify ```apllication.properties``` to include:
+- In Spring application, modify ```application.properties``` to include:
   ```
   spring.jpa.hibernate.ddl-auto=create-drop
   spring.datasource.url=jdbc:mysql://${MYSQL_HOST:localhost}:3306/<db_name>
@@ -177,7 +186,8 @@ Open-source application framework with many extensions tailored for building web
 - Use Spring Boot to integrate Spring MVC/REST into project
   - Discover IoC and the container
   - Create a Spring ```@RestController``` that returns some sample JSON data
-- **Extra Credit:** Use AOP to log the amount of time each controller request takes
+- **Extra Credit:** 
+  - Use AOP to log the amount of time each controller request takes
 ## Inversion of Control
 Spring uses an Inversion of Control (IoC) container to configure application components and life-cycle management, mainly done via dependency injection and reflection.
 ### Tutorial / Documentation
@@ -198,8 +208,76 @@ Spring has additonal abstraction on top of JDBC that simplifies setup and usage.
 [Introduction to Spring Data JDBC](https://www.baeldung.com/spring-data-jdbc-intro)  
 [JDBC Query Methods](https://docs.spring.io/spring-data/jdbc/docs/current/reference/html/#jdbc.query-methods)
 
+---
+# Lab 4 - Object Relational Mapping (ORM) with JPA (Hibernate)
+## Objectives
+- Enable JPA via Spring configuration - leveraging Spring Data JPA 
+- Create parent level entity for database table (ex: 'Subsidiary Company')
+- Create child level entity for database table that uses foreign key from parent (ex: 'Employee')
+- Setup O/R Mapping for entities
+- Include a collection mapping
+  - One to many (ex: 'Subsidiary Company' would have many 'Employee's)
+- Create an HQL query in the DAO implementation class
+- **Extra Credit:**
+  - Create third entity (ex: 'Parent Company')
+  - Include an association mapping
+    - Many to one (ex: 'Subsidiary Company' to 'Parent Company')  
 
+Modify ```application.properties``` to auto-create tables (will drop data and recreate schema on each application restart)
+  ```
+  spring.jpa.hibernate.ddl-auto=create-drop
+  spring.datasource.url=jdbc:mysql://${MYSQL_HOST:localhost}:3306/db_example
+  spring.datasource.username=root
+  spring.datasource.password=
+  spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+  spring.jpa.show-sql=true
+  spring.jpa.database-platform=org.hibernate.dialect.MySQL8Dialect
+  spring.jpa.database=mysql
+  spring.jpa.generate-ddl=true
+  logging.level.org.hibernate.SQL=DEBUG
+  logging.level.org.hibernate.type=TRACE
+  ```
+## Hibernate
+Hibernate is an open-source, Java based ORM (Object/Relational Mapping) toolkit.  
+- Hibernate handles the mapping from Java classes to database tables (to avoid manual data handling), and from Java data types to SQL data types. It also provides querying functionality.  
+- There are multiple mechanisms to leverage an ORM, specifically Hibernate, in your application due to how the product and Java standard (JPA) evolved over time.  
+- We will be leveraging Hibernate's JPA implementation wired via Spring annotation and context scanning. Doing so eliminates the need for ANY ```persitence.xml``` or xml-based contructs.  
+- The only thing needed will be the annotated classes.
 
+### Documentation and Tutorials
+#### Configuration
+[A Guide to JPA with Spring](https://www.baeldung.com/the-persistence-layer-with-spring-and-jpa) (context config example)  
+[Object Relational Mapping (ORM) Data Access](https://docs.spring.io/spring-framework/docs/current/reference/html/data-access.html#orm)
+
+#### Reference (check for latest stable version)
+- [Hibernate ORM Documentation - 6.1](https://hibernate.org/orm/documentation/6.1/)
+- ~~[Hibernate ORM 5.5.9 Final User Guide](https://docs.jboss.org/hibernate/orm/5.5/userguide/html_single/Hibernate_User_Guide.html)~~
+- [Hibernate ORM 6.1.0 Final User Guide](https://docs.jboss.org/hibernate/orm/current/userguide/html_single/Hibernate_User_Guide.html)
+  - Key Sections:
+    - Domain Model > 2.1-2.6 [(Basic O/R Mapping)](https://docs.jboss.org/hibernate/orm/4.3/manual/en-US/html/ch05.html)
+    - Domain Model > [Collection Mapping](https://docs.jboss.org/hibernate/orm/4.3/manual/en-US/html/ch07.html)
+    - Domain Model > [Association Mappings](https://docs.jboss.org/hibernate/orm/4.3/manual/en-US/html/ch08.html)
+    - [HQL: Hibernate Query Language](https://docs.jboss.org/hibernate/orm/4.3/manual/en-US/html/ch16.html)
+  - Also read about schema generation. Hibernate can generate the entire schema for you.  
+[Getting Started with Hibernate](https://www.infoworld.com/article/2072999/get-started-with-hibernate.html)  
+[Generic DAO with Hibernate and Spring](https://developer.ibm.com/tutorials/j-genericdao/)  
+
+[Transaction Propagation and Isolation in Spring @Transactional | Baeldung](https://www.baeldung.com/spring-transactional-propagation-isolation)  
+[One-to-One Relationship with JPA | Baeldung](https://www.baeldung.com/jpa-one-to-one)  
+[Hibernate One-to-Many Annotation Tutorial | Baeldung](https://www.baeldung.com/hibernate-one-to-many)  
+[Hibernate Many-to-Many Annotation Tutorial | Baeldung](https://www.baeldung.com/hibernate-many-to-many)  
+[Transactions with Spring and JPA | Baeldung](https://www.baeldung.com/transaction-configuration-with-jpa-and-spring)  
+[Transaction Propagation and Isolation in Spring @Transactional | Baeldung](https://www.baeldung.com/spring-transactional-propagation-isolation)
+
+*Download - use MAVEN instead*  
+[Hibernate ORM Releases](https://hibernate.org/orm/releases/)
+
+## Spring Transaction Management
+Spring provides a transaction manager for applications which is responsible for coordinating transactions of one or more resources with the database. It provides a consistent programming model across different transaction APIs (JTA, JDBC, Hibernate, JPA, JDO).
+
+### Reference Documentation
+READ THIS CHAPTER:  
+[Spring Framework - Transaction Management](https://docs.spring.io/spring-framework/docs/current/reference/html/data-access.html#transaction)
 
 
 

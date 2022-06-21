@@ -18,15 +18,14 @@
   - [Inversion of Control (IoC)](https://github.com/yanesanchez/tech-bootcamp-perficient/blob/main/README.md#inversion-of-control)
   - [REST and MVC](https://github.com/yanesanchez/tech-bootcamp-perficient/blob/main/README.md#rest-and-mvc)
   - [Spring JDBC](https://github.com/yanesanchez/tech-bootcamp-perficient/blob/main/README.md#spring-jdbc)
-- [Lab 4 - Object Relational Mapping (ORM) with JPA (Hibernate)](https://github.com/yanesanchez/tech-bootcamp-perficient/blob/main/README.md#lab-4---object-relational-mapping)
+- [Lab 4 - Object Relational Mapping (ORM) with JPA (Hibernate)](https://github.com/yanesanchez/tech-bootcamp-perficient#lab-4---object-relational-mapping-orm-with-jpa-hibernate)
   - [Objectives](https://github.com/yanesanchez/tech-bootcamp-perficient/blob/main/README.md#objectives-5)
   - [Hibernate](https://github.com/yanesanchez/tech-bootcamp-perficient/blob/main/README.md#hibernate)
   - [Documentation and Tutorials](https://github.com/yanesanchez/tech-bootcamp-perficient/blob/main/README.md#documentation-and-tutorials)
-    - [Configuration]()
-    - [Reference]()
-  - [Spring Transaction Management](https://github.com/yanesanchez/tech-bootcamp-perficient/blob/main/README.md#spring-transactional-management)
-    - [Reference Documentation]()
-
+    - [Configuration](https://github.com/yanesanchez/tech-bootcamp-perficient/blob/main/README.md#configuration-1)
+    - [Reference](https://github.com/yanesanchez/tech-bootcamp-perficient/blob/main/README.md#reference-check-for-latest-stable-version)
+  - [Spring Transaction Management](https://github.com/yanesanchez/tech-bootcamp-perficient/blob/main/README.md#spring-transaction-management)
+    - [Reference Documentation](https://github.com/yanesanchez/tech-bootcamp-perficient/blob/main/README.md#reference-documentation-1)
 
 ---
 
@@ -168,7 +167,7 @@ Useful for debugging and supporting applications, however, *useful* logging must
   - ```UPDATE``` statement
   - ```DELETE``` statement
 ## The Relational Model
-[Relationa; Database Overview](https://docs.oracle.com/javase/tutorial/jdbc/overview/database.html)
+[Relational Database Overview](https://docs.oracle.com/javase/tutorial/jdbc/overview/database.html)
 ## Tutorials
 [PostgresSQL 9.3 Tutorial](https://www.postgresql.org/docs/9.3/tutorial.html)  
 [MySQL 8.0 Tutorial, Chapter 3](https://dev.mysql.com/doc/refman/8.0/en/tutorial.html)

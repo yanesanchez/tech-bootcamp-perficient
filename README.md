@@ -258,6 +258,7 @@ Hibernate is an open-source, Java based ORM (Object/Relational Mapping) toolkit.
     - Domain Model > [Association Mappings](https://docs.jboss.org/hibernate/orm/4.3/manual/en-US/html/ch08.html)
     - [HQL: Hibernate Query Language](https://docs.jboss.org/hibernate/orm/4.3/manual/en-US/html/ch16.html)
   - Also read about schema generation. Hibernate can generate the entire schema for you.  
+
 [Getting Started with Hibernate](https://www.infoworld.com/article/2072999/get-started-with-hibernate.html)  
 [Generic DAO with Hibernate and Spring](https://developer.ibm.com/tutorials/j-genericdao/)  
 

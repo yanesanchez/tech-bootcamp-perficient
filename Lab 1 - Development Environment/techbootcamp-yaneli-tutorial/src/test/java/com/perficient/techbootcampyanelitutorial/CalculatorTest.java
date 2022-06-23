@@ -1,6 +1,9 @@
-package com.perficient.techbootcampyaneli;
+package com.perficient.techbootcampyanelitutorial;
 
 import org.springframework.boot.test.context.SpringBootTest;
+
+import com.perficient.techbootcampyanelitutorial.Calculator;
+
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;

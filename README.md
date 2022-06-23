@@ -9,6 +9,14 @@
   - [Spring Tool Suite](https://github.com/yanesanchez/tech-bootcamp-perficient/blob/main/README.md#spring-tool-suite)
   - [MySQL](https://github.com/yanesanchez/tech-bootcamp-perficient/blob/main/README.md#mysql)
   - [Development Technologies](https://github.com/yanesanchez/tech-bootcamp-perficient/blob/main/README.md#development-technologies)
+    - [Testing](https://github.com/yanesanchez/tech-bootcamp-perficient#testing)
+      - [Objectives](https://github.com/yanesanchez/tech-bootcamp-perficient#objectives-1)
+    - [Testing Resources](https://github.com/yanesanchez/tech-bootcamp-perficient#testing-resources)
+      - [JUnit](https://github.com/yanesanchez/tech-bootcamp-perficient#junit)
+      - [Mocking](https://github.com/yanesanchez/tech-bootcamp-perficient#mocking)
+    - [Logging](https://github.com/yanesanchez/tech-bootcamp-perficient#logging)
+      - [Objectives](https://github.com/yanesanchez/tech-bootcamp-perficient#objectives-2)
+      - [Logging References](https://github.com/yanesanchez/tech-bootcamp-perficient#logging-references)
 - [Lab 2 - Database Systems](https://github.com/yanesanchez/tech-bootcamp-perficient/blob/main/README.md#lab-2---database-systems)
   - [Objectives](https://github.com/yanesanchez/tech-bootcamp-perficient/blob/main/README.md#objectives-3)
   - [The Relational Model](https://github.com/yanesanchez/tech-bootcamp-perficient/blob/main/README.md#the-relational-model)
@@ -26,14 +34,18 @@
     - [Reference](https://github.com/yanesanchez/tech-bootcamp-perficient/blob/main/README.md#reference-check-for-latest-stable-version)
   - [Spring Transaction Management](https://github.com/yanesanchez/tech-bootcamp-perficient/blob/main/README.md#spring-transaction-management)
     - [Reference Documentation](https://github.com/yanesanchez/tech-bootcamp-perficient/blob/main/README.md#reference-documentation-1)
-- [Lab 5 - UI/UX]()
-  - [HTML]()
-  - [JavaScript (ECMAScript)]()
-    - [Understanding JavaScript]()
-    - [jQuery]()
-    - [Ajax]()
-  - [CSS]()
-- [Glossary]()
+- [Lab 5 - UI/UX](https://github.com/yanesanchez/tech-bootcamp-perficient#lab-5---uiux)
+  - [HTML](https://github.com/yanesanchez/tech-bootcamp-perficient#html)
+    - [Objectives](https://github.com/yanesanchez/tech-bootcamp-perficient#objectives-6)
+    - [References](https://github.com/yanesanchez/tech-bootcamp-perficient#references)
+  - [JavaScript (ECMAScript)](https://github.com/yanesanchez/tech-bootcamp-perficient#javascript-ecmascript)
+    - [Objectives](https://github.com/yanesanchez/tech-bootcamp-perficient#objectives-7)
+    - [Understanding JavaScript](https://github.com/yanesanchez/tech-bootcamp-perficient#understanding-javascript)
+    - [jQuery](https://github.com/yanesanchez/tech-bootcamp-perficient#jquery)
+    - [Ajax](https://github.com/yanesanchez/tech-bootcamp-perficient#ajax)
+  - [CSS](https://github.com/yanesanchez/tech-bootcamp-perficient#css)
+    - [Objectives](https://github.com/yanesanchez/tech-bootcamp-perficient#objectives-8)
+- [Glossary](https://github.com/yanesanchez/tech-bootcamp-perficient#glossary)
 
 ---
 
@@ -137,8 +149,8 @@ Testing frameworks exist to create automated unit and integration tests to valid
   - Write a JUnit test for the mock object (fail and succeed at least once)
 - Write JUnit tests for implemented features in your project
   - This will occur continuously over the tech bootcamp
-#### Testing Resources
-##### JUnit
+### Testing Resources
+#### JUnit
 [JUnit Tutorial](https://www.vogella.com/tutorials/JUnit/article.html)  
 [JUnit Docs](https://github.com/junit-team/junit4/wiki)
 #### Mocking

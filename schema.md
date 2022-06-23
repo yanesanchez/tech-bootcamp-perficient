@@ -5,7 +5,6 @@ Key:
 - '<--' = 'depends on'
 
 ## 1NF
-
 ### Library (Book)
 - **ISBN**
 - Title
@@ -19,7 +18,6 @@ Key:
 ---
 
 ## 2NF
-
 ISBN <-- Title, Author
 Publisher <-- Edition, Year
 Format <-- Pages, Duration
@@ -49,26 +47,34 @@ Format <-- Pages, Duration
 ### Book
 - **ISBN**
 - Title
-- Author
+- Author  
 
 ### Book_Information
 - ***ISBN***
 - Year
 - Edition
-- Publisher
+- Publisher 
+
+Author <-- First Name, Middle Name, Last Name, Post-Nominal
+
+### Author
+- **Author_Id**
+- First_Name
+- Middle_Name
+- Last_Name
+- Post_Nominal  
 
 Format <-- File Type, Pages, Duration
 
-### Traditional_Book
+### Physical_Book
 - ***ISBN***
-- Format
-- File Type
+- Cover (i.e. hardcover or paperback)
 - Pages
 - Duration
 
 ### Electronic_Book
 - ***ISBN***
-- File Type
+- File Type (i.e. PDF, EPUB, etc)
 - Pages
 
 ### Audio_Book

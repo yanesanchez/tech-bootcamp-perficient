@@ -26,6 +26,14 @@
     - [Reference](https://github.com/yanesanchez/tech-bootcamp-perficient/blob/main/README.md#reference-check-for-latest-stable-version)
   - [Spring Transaction Management](https://github.com/yanesanchez/tech-bootcamp-perficient/blob/main/README.md#spring-transaction-management)
     - [Reference Documentation](https://github.com/yanesanchez/tech-bootcamp-perficient/blob/main/README.md#reference-documentation-1)
+- [Lab 5 - UI/UX]()
+  - [HTML]()
+  - [JavaScript (ECMAScript)]()
+    - [Understanding JavaScript]()
+    - [jQuery]()
+    - [Ajax]()
+  - [CSS]()
+- [Glossary]()
 
 ---
 
@@ -214,6 +222,7 @@ Spring has additonal abstraction on top of JDBC that simplifies setup and usage.
 - Create parent level entity for database table (ex: 'Subsidiary Company')
 - Create child level entity for database table that uses foreign key from parent (ex: 'Employee')
 - Setup O/R Mapping for entities
+- Create a DAO
 - Include a collection mapping
   - One to many (ex: 'Subsidiary Company' would have many 'Employee's)
 - Create an HQL query in the DAO implementation class
@@ -279,6 +288,92 @@ Spring provides a transaction manager for applications which is responsible for 
 READ THIS CHAPTER:  
 [Spring Framework - Transaction Management](https://docs.spring.io/spring-framework/docs/current/reference/html/data-access.html#transaction)
 
+---
+# Lab 5 - UI/UX
+## HTML
+HTML (HyperText Markup Language) is the layout and structure of a web page.
+```
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
 
+<body>
 
+<h1>This is a Heading</h1>
+<p>This is a paragraph.</p>
+
+</body>
+</html>
+```
+Styling and functionality can be added with CSS and JavaScript, respectively.
+### Objectives
+- Create a basic HTML page to display content and a form
+- Connect your HTML to a CSS file and a JavaScript file.
+### References
+[MDN Web Docs - HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+
+## JavaScript (ECMAScript)
+Used to enhance User Experience online with client executed code. Implemented in all major browsers (although with different levels of support, and each with their own quirks).
+### Objectives
+- **POST**
+  - Create a FORM to POST data to the application for storage in the DB
+  - Utilize JavaScript to validate form data before post
+    - Hint: use jQuery to attach to the submit event
+    - Spring validators
+- **GET**
+  - Implement a controller method that returns JSON data
+  - Call controller method using Ajax (jQuery)
+  - Update page based on response via JavaScript/jQuery
+
+### Understanding JavaScript
+- Online Articles / Guides
+  - [Understanding JavaScript Function Invocation and "this"](https://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/)
+  - [Common JavaScript Gotchas](http://www.jblotus.com/2013/01/13/common-javascript-gotchas/)
+  - [Preparing Yourself for Modern JavaScript Development](https://www.simplethread.com/preparing-yourself-for-modern-javascript-development/)
+  - [Prototypes and Inheritance in JavaScript](https://docs.microsoft.com/en-us/previous-versions/msdn10/ff852808(v=msdn.10))
+  - [Style Guide: A Mostly Reasonable Approach to JavaScript](https://github.com/airbnb/javascript)
+- Books
+  - [*Eloquent JavaScript* by Marijn Haverbeke](https://eloquentjavascript.net/2nd_edition/)
+    - [Third Edition](https://eloquentjavascript.net/)
+  - [*Effective JavaScript* by David Herman]()
+
+### jQuery
+Cross platform JavaScript library with functions focusing on client-side scripting of HTML. Versions 1.x.x provide support for Internet Explorer 8, Versions 2.x.x support only **modern** browsers (no <IE8 support).  
+
+[Tutorials](https://learn.jquery.com/)  
+[Documentation](https://api.jquery.com/)
+
+### Ajax
+Web development techniques that leverage JavaScript, HTML, and CSS to create dynamic and interactive web pages.
+
+[jQuery Ajax tutorial](https://learn.jquery.com/ajax/)
+
+## CSS
+CSS (Cascading Style Sheets) is used to style web page content. There are many standard versions of CSS with varying levels of browser support.
+### Objectives
+- Utilize CSS to improve UX.
+  - Modify an element based on Id
+  - Modify an element based on class
+  - Modify an element based on nested selectors
+  - Create 2 different style sheets for theming
+### Tutorials
+[MDN - Getting Started with CSS](https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps)
+
+---
+# Glossary
+EAR - Enterprise ARchive  
+IDE - Integrated Development Environment  
+JDK - Java Development Kit  
+JAR - Java ARchive  
+WAR - Web application ARchive  
+JSP - Java Servlet Pages  
+JSTL - JSP Standard Tag Library  
+MVC - Model View Controller  
+ORM - Object/Relational Mapping  
+JDBC - Java Database Connectivity  
+JTA - Java Transaction API  
+JPA - Java Persistence API  
+JDO - Java Data Objects  
 

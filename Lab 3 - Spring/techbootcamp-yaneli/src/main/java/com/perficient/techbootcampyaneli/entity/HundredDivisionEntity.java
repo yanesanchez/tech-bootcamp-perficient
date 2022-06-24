@@ -5,6 +5,7 @@ import javax.persistence.Id;
 
 // Dewey Decimal Hundred Division = Second Summary
 
+//@Embeddable ?
 @Entity(name = "ddc_hundred_division")
 public class HundredDivisionEntity {
 	

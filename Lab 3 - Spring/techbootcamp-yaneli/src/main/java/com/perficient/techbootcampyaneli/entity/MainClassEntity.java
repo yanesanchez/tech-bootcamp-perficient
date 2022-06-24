@@ -5,6 +5,7 @@ import javax.persistence.Id;
 
 // Dewey Decimal Main Class = First Summary
 
+//@Embeddable ?
 @Entity(name = "ddc_main_class")
 public class MainClassEntity {
 	

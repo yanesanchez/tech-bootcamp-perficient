@@ -14,8 +14,6 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 @EntityScan(basePackages = {"com.perficient.techbootcampyaneli.entity"})
 public class TechbootcampYaneliApplication {
 
-	
-	
 	public static void main(String[] args) {
 		SpringApplication.run(TechbootcampYaneliApplication.class, args);
 	}

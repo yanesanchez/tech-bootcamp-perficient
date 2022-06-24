@@ -1,8 +1,12 @@
 package com.perficient.techbootcampyaneli.entity;
 
+import java.util.Objects;
+
+import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+@Embeddable
 @Entity(name = "book_classification")
 public class BookClassificationEntity {
 	
@@ -39,5 +43,23 @@ public class BookClassificationEntity {
 	public void setSection(Integer section) {
 		this.section = section;
 	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(division, isbn, mainClass, section);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		BookClassificationEntity other = (BookClassificationEntity) obj;
+		return Objects.equals(division, other.division) && Objects.equals(isbn, other.isbn)
+				&& Objects.equals(mainClass, other.mainClass) && Objects.equals(section, other.section);
+	}
 
+	
 }

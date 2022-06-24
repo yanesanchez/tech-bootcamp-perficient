@@ -5,6 +5,7 @@ import javax.persistence.Id;
 
 // Dewey Decimal Thousand Section = Third Summary
 
+//@Embeddable ?
 @Entity(name = "ddc_thousand_section")
 public class ThousandSectionEntity {
 	

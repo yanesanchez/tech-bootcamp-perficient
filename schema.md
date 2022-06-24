@@ -47,13 +47,35 @@ Format <-- Pages, Duration
 ### Book
 - **ISBN**
 - Title
-- Author  
+- Author_FirstName
+- Author_LastName
+- ~Genre~
 
 ### Book_Information
 - ***ISBN***
 - Year
 - Edition
-- Publisher 
+- Publisher
+- Description
+
+### Book_Classification
+- ***ISBN***
+- Main_Class
+- Division
+- Section
+
+### DDC_Main_Class
+- **Number**
+- Heading
+
+### DDC_Hundred_Division
+- **Number**
+- Heading
+
+### DDC_Thousand_Section
+- **Number**
+- Heading
+
 
 Author <-- First Name, Middle Name, Last Name, Post-Nominal
 

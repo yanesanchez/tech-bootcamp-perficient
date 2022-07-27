@@ -11,8 +11,6 @@ import java.util.stream.StreamSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
-
 @Service
 public class LibraryService {
 	@Autowired
@@ -34,10 +32,10 @@ public class LibraryService {
 		return StreamSupport.stream(bookEntities.spliterator(), false).map(be -> map(be)).collect(Collectors.toList());
 	}
 	
-	/*
+	
 	private Book map(BookEntity bookEntity) {
 		return null;
 	}
-	*/
+	
 	
 }

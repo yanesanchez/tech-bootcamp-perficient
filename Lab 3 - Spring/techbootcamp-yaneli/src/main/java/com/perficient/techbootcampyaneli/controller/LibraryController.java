@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.perficient.techbootcampyaneli.service.jpa.LibraryService;
 import com.perficient.techbootcampyaneli.domain.Book;
+import com.perficient.techbootcampyaneli.entity.BookEntity;
 import com.perficient.techbootcampyaneli.service.jpa.BookRepository;
 
 @RestController
@@ -34,7 +35,7 @@ public class LibraryController {
 	
 	
 	@GetMapping(path="/all")
-	  public @ResponseBody Iterable<Book> getAllBooks() {
+	  public @ResponseBody Iterable<BookEntity> getAllBooks() {
 	    // This returns a JSON or XML with the users
 	    return bookRepository.findAll();
 	  }
